@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.insert {
+  text-align: center;
+}
+.title-primary {
+  text-align: center;
+}
+.table-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+.table-cell {
+  border-collapse: collapse;
+}
