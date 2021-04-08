@@ -36,6 +36,7 @@ validateBtn.addEventListener('click', function() {
       if (Number.isInteger(valueNum) !== true) {
         const validateResult = document.createTextNode('Insert only integers please');
         validateDiv.appendChild(validateResult);
+        validateDiv.appendChild(document.createElement('br'));
         return;
       }
       sum += valueNum;
@@ -44,6 +45,7 @@ validateBtn.addEventListener('click', function() {
     if (sum !== 100) {
       const validateResult = document.createTextNode(`Sorry the addition in row number ${i + 1} is not iqual to 100`);
       validateDiv.appendChild(validateResult);
+      validateDiv.appendChild(document.createElement('br'));
       return;
     }
   }
@@ -56,6 +58,7 @@ validateBtn.addEventListener('click', function() {
       if (Number.isInteger(valueNumColumn) !== true) {
         const validateResult = document.createTextNode('Insert only integers please');
         validateDiv.appendChild(validateResult);
+        validateDiv.appendChild(document.createElement('br'));
       }
       sumColumn += valueNumColumn;
     }
@@ -64,9 +67,11 @@ validateBtn.addEventListener('click', function() {
     if (sumColumn !== 100) {
       const validateResult = document.createTextNode(`Sorry the addition in column number ${i +1} is not iqual to 100`);
       validateDiv.appendChild(validateResult);
+      validateDiv.appendChild(document.createElement('br'));
       return;
     }
   }
   const validateResult = document.createTextNode(`Congrats. All the rows and columns additions are iqual to 100`);
   validateDiv.appendChild(validateResult);
+  validateDiv.appendChild(document.createElement('br'));
 });
