@@ -42,38 +42,30 @@ validateBtn.addEventListener('click', function() {
     }
     console.log(sum);
     if (sum !== 100) {
-      const validateResult = document.createTextNode(`Sorry the addition in row number ${i} is not iqual to 100`);
+      const validateResult = document.createTextNode(`Sorry the addition in row number ${i + 1} is not iqual to 100`);
       validateDiv.appendChild(validateResult);
       return;
     }
   }
   for (let i = 0; i < yVal; i++) {
     let sumColumn = 0
-    for (let j = 0; j < xVal; j++) {
+    let j;
+    for (j = 0; j < xVal; j++) {
       let valueColumn = document.querySelector(`.row${j}-column${i}`).value;
       let valueNumColumn = Number(valueColumn);
       if (Number.isInteger(valueNumColumn) !== true) {
         const validateResult = document.createTextNode('Insert only integers please');
         validateDiv.appendChild(validateResult);
-        return j;
       }
       sumColumn += valueNumColumn;
     }
+    console.log(j);
     console.log(sumColumn);
     if (sumColumn !== 100) {
-      const validateResult = document.createTextNode(`Sorry the addition in column number is not iqual to 100`);
+      const validateResult = document.createTextNode(`Sorry the addition in column number ${i +1} is not iqual to 100`);
       validateDiv.appendChild(validateResult);
       return;
     }
-    /* if (sum === 100) {
-      const validateResult = document.createTextNode('The addition is equal to 100');
-      validateDiv.appendChild(validateResult);
-      validateDiv.appendChild(document.createElement('br'));
-    } else {
-      const validateResult = document.createTextNode('The addition is NOT equal to 100');
-      validateDiv.appendChild(validateResult);
-      validateDiv.appendChild(document.createElement('br'));
-    } */
   }
   const validateResult = document.createTextNode(`Congrats. All the rows and columns additions are iqual to 100`);
   validateDiv.appendChild(validateResult);
