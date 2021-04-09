@@ -1,13 +1,23 @@
+/* FONTS */
+@font-face {
+  font-family: 'Dela Gothic One';
+  src: url('DelaGothicOne-Regular.woff2') format('woff2'),
+      url('DelaGothicOne-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* GENERAL STYLES */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 input {
-  width: 50px;
-  border: 1px solid black;
+  width: 100px;
+  border: none;
   border-radius: 20px;
-  background-color: #f7f3e9;
+  background-color:#E5E5E5;;
   text-align: center;
   padding: 10px;
 }
@@ -16,7 +26,9 @@ input:focus, button:focus {
 }
 body {
   font-family: 'Dela Gothic One';
-  background-color: #f7f3e9;
+  font-weight: normal;
+  font-style: normal;
+  background: url('./images/background.png') no-repeat center center/cover;
 }
 .wrapper {
   max-width: 1440px;
@@ -28,31 +40,25 @@ body {
 }
 .insert {
   text-align: center;
-  background-color: #9ddfd3;
-  padding: 100px 0;
+  padding: 42px 0;
   justify-content: space-between;
 }
 .hero {
   display: flex;
-  padding: 100px 20px;
-  background-color: #31326f;
+  padding: 150px 20px;
+  justify-content: center;
 }
 
 .hero__title {
-  width: 50%;
   font-size: 2rem;
   text-align: center;
   align-self: center;
   text-transform: uppercase; 
   color: white;
 }
-.hero__img {
-  display: flex;
-  width: 50%;
-  justify-content: center;
-}
 .insert__text {
-  padding: 20px 0;
+  padding: 30px 0;
+  color: #E5E5E5;
 }
 .insert__x, .insert__y {
   width: 150px;
@@ -62,10 +68,15 @@ body {
 }
 .insert__button, .validate__button {
   padding: 10px;
+  border: none;
   border-radius: 20px;
   text-align: center;
-  background-color: #ffc93c;
+  background-color: #FCA311;
   font-family: 'Dela Gothic One';
+  color: #14213D;
+  margin-top: 18px
+  
+  ;
 }
 .validate {
   display: flex;
@@ -75,16 +86,19 @@ body {
   max-width: 600px;
   text-align: center;
   font-size: 1rem;
-  padding: 40px;
+  padding: 0 40px;
+  color: #E5E5E5;
 }
 .table-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 50px 0;
+  padding: 20px 0 50px 0;
   margin: 0 auto;
 }
 .table {
+  border-radius: 20px;
+  padding: 30px;
   margin: 0 auto;
 }
 .table-cell {
@@ -93,4 +107,8 @@ body {
 .validation {
   padding: 20px 0 100px 0;
   text-align: center;
+  color: #E5E5E5;
+}
+.validate {
+  padding: 45px 0;
 }
