@@ -1,8 +1,8 @@
 /* FONTS */
 @font-face {
   font-family: 'Dela Gothic One';
-  src: url('DelaGothicOne-Regular.woff2') format('woff2'),
-      url('DelaGothicOne-Regular.woff') format('woff');
+  src: url('./fonts/DelaGothicOne-Regular.woff2') format('woff2'),
+      url('./fonts/DelaGothicOne-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -54,11 +54,11 @@ body {
   text-align: center;
   align-self: center;
   text-transform: uppercase; 
-  color: white;
+  color: #C0C0C0;
 }
 .insert__text {
   padding: 30px 0;
-  color: #E5E5E5;
+  color: #C0C0C0;
 }
 .insert__x, .insert__y {
   width: 150px;
@@ -87,7 +87,7 @@ body {
   text-align: center;
   font-size: 1rem;
   padding: 0 40px;
-  color: #E5E5E5;
+  color: #C0C0C0;
 }
 .table-container {
   display: flex;
@@ -107,7 +107,7 @@ body {
 .validation {
   padding: 20px 0 100px 0;
   text-align: center;
-  color: #E5E5E5;
+  color: #C0C0C0;
 }
 .validate {
   padding: 45px 0;
