@@ -2,7 +2,10 @@ const tableDiv = document.querySelector('.js-table');
 const submitBtn = document.querySelector('.js-submit');
 const validationDiv = document.querySelector('.js-validation');
 const validateList = document.querySelector('.js-validation-list');
+let allIsOk;
+let allResults = [];
 
+/* FUNCTION THAT VALIDATES IF THE VALUE IS AN INTEGER */
 function validateInteger(value, i, j) {
   let valueNum = Number(value);
   if (Number.isInteger(valueNum) !== true) {
@@ -13,7 +16,8 @@ function validateInteger(value, i, j) {
     return;
   }
 }
-/* function validateAddition(addition, string, i) {
+/* FUNCTION THAT VALIDATES  IF THE ADDITIONS BETWEEN THE ROWS AND THE COLUMN ARE EQUAL TO 100 */
+function validateAddition(addition, string, i) {
   if (addition !== 100) {
     const validateItem = document.createElement('li');
     const validateResult = document.createTextNode(`Sorry the addition in ${string} number ${i + 1} is not iqual to 100`);
@@ -21,7 +25,9 @@ function validateInteger(value, i, j) {
     validateList.appendChild(validateItem);
     return;
   }
-} */
+}
+
+/* TABLE CREATION WITH USER PARAMETERS */
 submitBtn.addEventListener('click', function() {
   const xVal = document.querySelector('.js-x').value;
   const yVal = document.querySelector('.js-y').value;
@@ -53,6 +59,8 @@ submitBtn.addEventListener('click', function() {
   tbl.appendChild(tblBody);
   tableDiv.appendChild(tbl);
 });
+
+/* TAKING AND VALIDATING THE NUMBERS AND ADDITIONS */
 const validateBtn = document.querySelector('.js-validate-btn');
 validateBtn.addEventListener('click', function() {
   const xVal = document.querySelector('.js-x').value;
@@ -64,17 +72,12 @@ validateBtn.addEventListener('click', function() {
       let value = document.querySelector(`.row${i}-column${j}`).value;
       let valueNum = Number(value);
       validateInteger(valueNum, i, j);
-      console.log(valueNum);
       sum += valueNum;
     }
-    /* validateAddition(sum, 'row', i); */
     if (sum !== 100) {
-      const validateItem = document.createElement('li');
-      const validateResult = document.createTextNode(`Sorry the addition in row number ${i + 1} is not iqual to 100`);
-      validateItem.appendChild(validateResult);
-      validateList.appendChild(validateItem);
-      return;
+      allResults.push(sum);
     }
+    validateAddition(sum, 'row', i);
   }
   for (let i = 0; i < yVal; i++) {
     let sumColumn = 0
@@ -82,20 +85,19 @@ validateBtn.addEventListener('click', function() {
       let valueColumn = document.querySelector(`.row${j}-column${i}`).value;
       let valueNumColumn = Number(valueColumn);
       validateInteger(valueNumColumn, i, j);
-      console.log(valueNumColumn);
       sumColumn += valueNumColumn;
     }
-    /* validateAddition(sumColumn, 'column', i); */
     if (sumColumn !== 100) {
-      const validateItem = document.createElement('li');
-      const validateResult = document.createTextNode(`Sorry the addition in column number ${i +1} is not iqual to 100`);
-      validateItem.appendChild(validateResult);
-      validateList.appendChild(validateItem);
-      return;
+      allResults.push(sumColumn);
     }
+    validateAddition(sumColumn, 'column', i);
   }
-  const validateResult = document.createTextNode(`Congrats. All the rows and columns additions are iqual to 100`);
-  const validateItem = document.createElement('li');
-  validateItem.appendChild(validateResult);
-  validateList.appendChild(validateItem);
+  
+  console.log(allResults, allResults.length);
+  if (allResults.length === 0) {
+    const validateResult = document.createTextNode(`Congrats. All the rows and columns additions are iqual to 100`);
+    const validateItem = document.createElement('li');
+    validateItem.appendChild(validateResult);
+    validateList.appendChild(validateItem);
+  } else allResults = [];
 });
